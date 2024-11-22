@@ -7,7 +7,7 @@ exports.generateToken = (payload) =>{
     return newToken
 }
 
-exports.verifyToken = (payload) => {
+exports.verifyToken = (token) => {
     const decode = jwt.verify(token, JWT_SECRET)
     return decode
 }
