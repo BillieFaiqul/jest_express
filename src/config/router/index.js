@@ -1,8 +1,6 @@
 const authRoutes = require("./auth")
 module.exports = (app) => {
     try {
-      
-
       // Testing Routes
       app.get("/", async (req, res) => {
         return res.status(200).json({
@@ -10,12 +8,8 @@ module.exports = (app) => {
           message: "API service is run properly",
         });
       });
-
-
       // login routes
       app.use("/", authRoutes);
-
-      
       // handle unknown routing
       app.get("*", (req, res) => {
         res.status(404).json({

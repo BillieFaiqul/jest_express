@@ -56,23 +56,6 @@ class PostgreConnection {
   }
 
   async query(sql, params) {
-
-    // if (!this.client) {
-    //   throw new Error("[INFO->DB<-]: Database doesn't connect properly");
-    // }
-    // try {
-    //   const result = await this.client.query(sql, params);
-    //   console.log(
-    //     `[INFO-DB]: execute query ${sql} and params : ${undefined ? "no params" : params
-    //     }`
-    //   );
-    //   return result.rows;
-    // } catch (error) {
-    //   console.error("[INFO->DB<-]: error executing query: ", error);
-    //   throw error;
-    // }
-
-    // USING POSTGRE POOL <===============================================================================>
     try {
       const client = await this.pool.connect(); // mendapatkan koneksi dari pool
       try {
@@ -91,7 +74,6 @@ class PostgreConnection {
       console.log("[INFO->DB<-]: error executing query: ", error);
       throw error;
     }
-    // <================================================================================================>
   }
 }
 
